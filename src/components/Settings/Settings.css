@@ -1,0 +1,26 @@
+.messages img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+  
+  
+  }
+
+  
+  .chat {
+    box-align: center;
+    font-family: 'Impact';
+    color: rgb(51, 15, 56);
+    margin-left: 330px;
+    margin-top: -170px;
+  }
+
+  
+  .setting {
+    grid-area: c;
+    background-color: rgba(238, 169, 221, 0.466);
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 1000px;
+    box-shadow: 5px 2px 5px 5px rgba(24, 4, 24, 0.336);
+  }
