@@ -13,7 +13,6 @@ function App() {
     <div className="App">
     <Header />
     <Navbar />
-   
       <div>
       <Route path = '/dialogs' component = {Dialogs}/>
       <Route path = '/profile' component = {Profile}/>
