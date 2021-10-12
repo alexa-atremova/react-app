@@ -2,16 +2,11 @@ import React from 'react';
 import './MyPosts.css';
 import Posts from './Posts/Posts';
 
-const MyPosts = (prors) => {
+const MyPosts = (props) => {
 
 
-  let postItem = [
-    { post: "Привет!", like: "3" },
-    { post: "Эй?'", like: "1" },
-    { post: ":(", like: "6" }
-  ]
 
-  let postElements = postItem.map(p => <Posts message={p.post} like = {p.like} />)
+  let postElements = props.post.map(p => <Posts message={p.post} like = {p.like} />)
 
 
   return (

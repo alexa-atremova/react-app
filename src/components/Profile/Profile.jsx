@@ -3,7 +3,7 @@ import MyPosts from './MyPosts/MyPosts';
 import './Profile.css';
 
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className="content">
       <img className= "backAva" src='./bg.gif'></img>
@@ -18,7 +18,7 @@ const Profile = () => {
 
       </div>
       <div className="profilePost">
-      <MyPosts />
+      <MyPosts post = {props.myPost}/>
       </div>
      
     </div>

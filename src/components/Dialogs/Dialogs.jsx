@@ -19,23 +19,11 @@ const MessageItem = (props) => {
 }
 
 
-const Dialogs = () => {
-
-  let dialogsData = [
-    { id: 1, name: 'Димон' },
-    { id: 2, name: 'Саня' },
-    { id: 3, name: 'Катюха' },
-  ]
+const Dialogs = (props) => {
 
 
-  let messageData = [
-    {message: 'хай' },
-    {message: 'че как ты' },
-    {message: 'шо?' },
-  ]
-
-  let dialogsElements = dialogsData.map(d => <DialogsItem name={d.name} id={d.id} />)
-  let messageElements = messageData.map(m => <MessageItem message={m.message} />)
+  let dialogsElements = props.myContacts.map(d => <DialogsItem name={d.name} id={d.id} />)
+  let messageElements = props.myMessage.map(m => <MessageItem message={m.message} />)
 
   return (
     <div className="messagePage">
