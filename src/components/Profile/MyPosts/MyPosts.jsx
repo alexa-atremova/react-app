@@ -6,7 +6,7 @@ const MyPosts = (props) => {
 
 
 
-  let postElements = props.post.map(p => <Posts message={p.post} like = {p.like} />)
+  let postElements = props.state.map(p => <Posts message={p.post} like = {p.like} />)
 
 
   return (
