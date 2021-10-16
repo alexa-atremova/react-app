@@ -6,8 +6,15 @@ const MyPosts = (props) => {
 
 
 
-  let postElements = props.state.map(p => <Posts message={p.post} like = {p.like} />)
+  let postElements = props.state.map(p => <Posts post={p.post} like={p.like} />)
 
+  let newPostElement = React.createRef();
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    props.addPost(text);
+    newPostElement.current.value = '';
+  }
 
   return (
 
@@ -15,8 +22,8 @@ const MyPosts = (props) => {
 
       <div>my posts
         <div>
-          <input type="text" placeholder="Your News..." />
-          <button type="submit">Send</button>
+          <textarea ref={newPostElement}></textarea>
+          <button onClick={addPost} type="submit">Send</button>
         </div>
 
         {postElements}
