@@ -19,6 +19,7 @@ let state = {
         like: "6"
       }
     ],
+    newPostText:''
   },
   messagePage: {
 
@@ -51,10 +52,17 @@ let state = {
 export let addPost = (postMessage) => {
   let newPost = {
 
-    post: postMessage,
+    post: state.profilePage.newPostText,
     like: 5
   }
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderTree(state); 
+} 
+
+export let updatePostText = (newText) => {
+
+  state.profilePage.newPostText = newText;
   rerenderTree(state);
 }
 
