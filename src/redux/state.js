@@ -1,5 +1,5 @@
-let store ={
-  _state:{
+let store = {
+  _state: {
     profilePage: {
       posts: [{
           post: "Привет!",
@@ -14,10 +14,10 @@ let store ={
           like: "6"
         }
       ],
-      newPostText:''
+      newPostText: ''
     },
     messagePage: {
-  
+
       dialogs: [{
           id: 1,
           name: 'Димон'
@@ -43,35 +43,34 @@ let store ={
       ]
     }
   },
-  getState(){
+  getState() {
     return this._state;
   },
-  addPost(){
-    let newPost = {
-  
-      post: this._state.profilePage.newPostText,
-      like: 5
-    }
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this.rerenderTree(this._state); 
-  },
-
-  updatePostText (newText) {
-
-    this._state.profilePage.newPostText = newText;
-    this.rerenderTree(this._state);
-  },
-
-
-  rerenderTree(){},
-
-  subscribe(observer){
+  rerenderTree() {},
+  subscribe(observer) {
     this.rerenderTree = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+
+        post: this._state.profilePage.newPostText,
+        like: 5
+      }
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this.rerenderTree(this._state);
+
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+
+      this._state.profilePage.newPostText = action.newText;
+      this.rerenderTree(this._state);
     }
+
+  }
 }
 
 
 export default store;
 window.store = store;
-
