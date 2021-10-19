@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state from './redux/state'
-import {addPost,updatePostText,subscribe} from './redux/state'
+import store from './redux/state'
 
 
- let rerenderTree = (state) =>{
+
+ let rerenderTree = () =>{
 
 
   ReactDOM.render(
     <React.StrictMode>
-      <App state = {state}  addPost = {addPost} updatePostText ={updatePostText}/>
+      <App state = {store.getState()}  
+          addPost = {store.addPost.bind(store)}
+          updatePostText ={store.updatePostText.bind(store)}/>
     </React.StrictMode>,
     document.getElementById('root')
   ); 
@@ -21,5 +23,5 @@ import {addPost,updatePostText,subscribe} from './redux/state'
 
 
 
-rerenderTree(state);
-subscribe(rerenderTree);
+rerenderTree(store.getState());
+store.subscribe(rerenderTree);
