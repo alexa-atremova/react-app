@@ -47,7 +47,7 @@ const Dialogs = (props) => {
         
       </div >
       <div className = 'sendMessage'>
-          <input onChange={onMessageChange} value = {newMessageText}/>
+          <input onChange={onMessageChange} value = {props.newMessageText}/>
           <button onClick={addMessage} type="submit">Send</button>
         </div>
     </div>
