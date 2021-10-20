@@ -10,10 +10,10 @@ const Profile = (props) => {
       <div className="aboutMe">
         <img className="ava" src='./user.jpg'></img>
         <div className="description">
-          <div className="userName">Юмико Судзэ</div>
+          <div className="userName">Имя Фамилия</div>
           <div className="userDate">День рождение: 07.07.2007</div>
-          <div className="userTown">Город: Токио</div>
-          <div className="userHobby">Хобби: аниме и покушац</div>
+          <div className="userTown">Город: Одесса</div>
+          <div className="userHobby">Хобби: кушать</div>
         </div>
 
       </div>

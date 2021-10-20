@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dialogs.css';
 import { NavLink } from 'react-router-dom';
+import {addMessageAction,updateMessageAction} from './../../redux/state'
 
 
 const DialogsItem = (props) => {
@@ -10,11 +11,25 @@ const DialogsItem = (props) => {
 const MessageItem = (props) => { return <div className="dialog"><span>{props.message}</span></div> }
 
 
+
+
 const Dialogs = (props) => {
 
 
-  let dialogsElements = props.state.dialogs.map(d => <DialogsItem name={d.name} id={d.id} />)
-  let messageElements = props.state.messages.map(m => <MessageItem message={m.message} />)
+  let dialogsElements = props.messagePage.dialogs.map(d => <DialogsItem name={d.name} id={d.id} />)
+  let messageElements = props.messagePage.messages.map(m => <MessageItem message={m.message} />) ;
+
+  let newMessageText = props.newMessageText;
+
+  const addMessage = () =>{
+  props.dispatch(addMessageAction())
+  }
+  
+  let onMessageChange = (event) =>{
+    let textMessage = event.target.value;
+    props.dispatch(updateMessageAction(textMessage));
+  }
+
 
   return (
     <div className="messagePage">
@@ -27,12 +42,14 @@ const Dialogs = (props) => {
 
         <div className="yourDialog">
           {messageElements}
-          <div>
-
-          </div>
+    
         </div>
-
+        
       </div >
+      <div className = 'sendMessage'>
+          <input onChange={onMessageChange} value = {newMessageText}/>
+          <button onClick={addMessage} type="submit">Send</button>
+        </div>
     </div>
   )
 }

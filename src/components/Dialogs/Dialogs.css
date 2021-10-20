@@ -1,10 +1,11 @@
 .messagePage {
+  grid-area: c;
   background-color: rgba(238, 169, 221, 0.466);
   margin-top: 10px;
   border-radius: 10px;
   height: 100%;
   box-shadow: 5px 2px 5px 5px rgba(24, 4, 24, 0.336);
-
+  width: 990px;
 }
 
 .messages {
@@ -12,6 +13,7 @@
   grid-template-columns: 2fr 10fr;
   padding: 30px;
   padding-left: 50px;
+
 }
 
 .yourContacts {
@@ -40,7 +42,7 @@
 .dialog {
 
   margin: 20px;
- 
+
   color: rgb(51, 15, 56);
   font-family: 'Impact';
   font-size: 15px;
@@ -56,6 +58,44 @@
   background-color: rgba(51, 15, 56, 0.089);
   border-radius: 50px;
   padding: 5px;
+
+
+}
+
+.sendMessage {
+  grid-area: c;
+  font-family: 'Impact';
+  font-size: 30px;
+  color: rgb(51, 15, 56);
+  margin-left: 220px;
+}
+
+.sendMessage input {
+  border-radius: 100px;
+  width: 800px;
+  height: 80px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.39);
+  padding: 10px;
+  width: 700px;
+  height: 50px;
+
+
+}
+
+.sendMessage button {
+  border-radius: 10px;
+  background-color: plum;
+  box-shadow: 0px 2px 7px 2px rgba(24, 4, 24, 0.336);
+  width: 80px;
+  height: 40px;
+  color: rgb(51, 15, 56);
+  font-family: 'Impact';
+  font-size: 20px;
+  margin-top: 15px;
+
+
 
 
 }
