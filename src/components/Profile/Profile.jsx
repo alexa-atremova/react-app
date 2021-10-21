@@ -18,7 +18,7 @@ const Profile = (props) => {
 
       </div>
       <div className="profilePost">
-        <MyPostsContainer store={props.store} />
+        <MyPostsContainer/>
       </div>
 
     </div>
