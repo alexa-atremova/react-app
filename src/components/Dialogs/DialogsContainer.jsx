@@ -1,38 +1,30 @@
-import React from 'react';
 import { addMessageAction, updateMessageAction } from './../../redux/dialogs-reducer'
 import Dialogs from './Dialogs';
-import StoreContext from './../../StoreContext'
+import {connect} from 'react-redux';
 
 
 
-const DialogsContainer = () => {
+let mapState = (state) => {
+  return {
+    messagePage: state.messagePage
+  }
 
+}
 
-  return (
-  <StoreContext.Consumer>
-    {
-    (store) => {
-      let state = store.getState().messagePage;
-
-      const addMessage = () => {
-        store.dispatch(addMessageAction())
-      }
-
-      let onMessageChange = (textMessage) => {
-      let action = updateMessageAction(textMessage);
-        store.dispatch(action);
-      }
-      return <Dialogs
-        addMessage={addMessage}
-        updateMessage={onMessageChange}
-        messagePage={state}
-      />
+let mapDispatch = (dispatch) => {
+  return {
+    updateMessage: (textMessage) => {
+      dispatch(updateMessageAction(textMessage))
+    },
+    addMessage: () => {
+      dispatch(addMessageAction())
     }
   }
-  </StoreContext.Consumer>
-  )
 }
-  
-export default DialogsContainer; 
+const DialogsContainer = connect(mapState, mapDispatch)(Dialogs);
+
+export default DialogsContainer;
+
+
 
 

@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
-import {Provider} from './StoreContext'
+import {Provider} from 'react-redux'
 
 
- let rerenderTree = () =>{
+
 
 
   ReactDOM.render(
@@ -20,12 +20,5 @@ import {Provider} from './StoreContext'
   ); 
   
   
-};
 
 
-
-rerenderTree(store.getState());
-store.subscribe(()=>{
-  let state = store.getState();
-  rerenderTree(state);
-});
