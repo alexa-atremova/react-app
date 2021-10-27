@@ -18,6 +18,11 @@ const Navbar = () => {
 
             </div>
 
+            <div>
+                <NavLink to="/users" style={{ textDecoration: 'none' }}>Users</NavLink>
+
+            </div>
+
             <div className="settings">
 
                 <NavLink to="/settings" style={{ textDecoration: 'none' }}>Settings</NavLink>
