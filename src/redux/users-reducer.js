@@ -4,40 +4,7 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
 
-    users: [{
-            id: 1,
-            photo:'https://i.pinimg.com/564x/07/f1/2b/07f12bfb3b2b0104fae637771acdd5b7.jpg',
-            userName: "Саша",
-            status: "чё каво",
-            location: {
-                city: "Odessa",
-                country: "Ukraine"
-            },
-            followerStatus: true
-        },
-        {
-            id: 2,
-            photo:'https://i.pinimg.com/564x/07/f1/2b/07f12bfb3b2b0104fae637771acdd5b7.jpg',
-            userName: "Саша",
-            status: "чё каво",
-            location: {
-                city: "Odessa",
-                country: "Ukraine"
-            },
-            followerStatus: false
-        },
-        {
-            id: 3,
-            photo:'https://i.pinimg.com/564x/07/f1/2b/07f12bfb3b2b0104fae637771acdd5b7.jpg',
-            userName: "Саша",
-            status: "чё каво",
-            location: {
-                city: "Odessa",
-                country: "Ukraine"
-            },
-            followerStatus: false
-        }
-    ],
+    users: []
 
 
 }
@@ -100,7 +67,7 @@ export const unfollowAC = (userid) => {
 
     }
 }
-export const setUsers = (users) => {
+export const setUsersAC = (users) => {
     return {
         type: SET_USERS,
         users
