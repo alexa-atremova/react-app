@@ -6,7 +6,7 @@ const Posts = (props) => {
 
 
         <div className='postContent'>
-            <img src='./user.jpg' />
+            <img src={'./user.jpg'} />
             <div className='textPost'>
                 {props.post}
             </div>

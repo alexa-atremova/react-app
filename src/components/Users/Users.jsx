@@ -1,5 +1,6 @@
 import * as axios from 'axios';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './users.module.css';
 
 
@@ -25,10 +26,11 @@ let Users = (props) => {
             <div className={styles.usersColum}>
                 {props.users.map(u => <div key={u.id}>
                     <span >
+                        <NavLink to ={'/profile/' + u.id}>
                         <div className={styles.users}>
                             <img src={u.photos.small != null ? u.photos.small : "./userPhoto.png"} />
                         </div>
-
+                        </NavLink>
                         <div>
                             {u.followerStatus
                                 ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>

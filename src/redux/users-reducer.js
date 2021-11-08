@@ -2,14 +2,16 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT ='SET_TOTAL_USERS_COUNT';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+const FETCHING = 'FETCHING';
 
 let initialState = {
 
     users: [],
     pageSize: 6,
-    totalUsersCount: 40,
-    currentPage: 1
+    totalUsersCount: 70,
+    currentPage: 1,
+    isFetching: true
 
 
 
@@ -54,11 +56,23 @@ const usersReducer = (state = initialState, action) => {
 
         }
         case SET_CURRENT_PAGE: {
-            return {...state, currentPage: action.currentPage}
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
         }
 
         case SET_TOTAL_USERS_COUNT: {
-            return {...state, totalUsersCount: action.count}
+            return {
+                ...state,
+                totalUsersCount: action.count
+            }
+        }
+        case FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         }
 
         default:
@@ -66,14 +80,14 @@ const usersReducer = (state = initialState, action) => {
     }
 
 }
-export const followAC = (userid) => {
+export const follow = (userid) => {
     return {
         type: FOLLOW,
         userid
     }
 }
 
-export const unfollowAC = (userid) => {
+export const unfollow = (userid) => {
     return {
         type: UNFOLLOW,
         userid
@@ -81,7 +95,7 @@ export const unfollowAC = (userid) => {
 
     }
 }
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
     return {
         type: SET_USERS,
         users
@@ -89,17 +103,17 @@ export const setUsersAC = (users) => {
 
     }
 }
-export const setCurrentPageAC = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return {
         type: SET_CURRENT_PAGE,
         currentPage
 
 
     }
-    
+
 }
 
-export const setTotalUsersCountAC = (totalUsersCount) => {
+export const setTotalUsersCount = (totalUsersCount) => {
     return {
         type: SET_TOTAL_USERS_COUNT,
         count: totalUsersCount
@@ -107,4 +121,13 @@ export const setTotalUsersCountAC = (totalUsersCount) => {
 
     }
 }
+export const setIsFetching = (isFetching) => {
+    return {
+        type: FETCHING,
+        isFetching
+
+
+    }
+}
+
 export default usersReducer;

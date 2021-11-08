@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 let mapState = (state) => {
   return {
     posts: state.profilePage.posts,
-    newPostText: state.profilePage.newPostText
+    newPostText: state.profilePage.newPostText,
+    
   }
 
 }
