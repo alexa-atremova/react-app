@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching } from "../../redux/users-reducer";
+import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching, toggleProgress } from "../../redux/users-reducer";
 import * as axios from 'axios';
 import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/usersAPI";
@@ -36,7 +36,7 @@ class UsersComtainer extends React.Component {
     render() {
 
         return <>
-            {this.props.isFetching ? <Preloader/> : null}
+            {this.props.isFetching ? <Preloader /> : null}
             <Users
                 onPageChanged={this.onPageChanged}
                 pageSize={this.props.pageSize}
@@ -45,7 +45,8 @@ class UsersComtainer extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
-
+                toggleProgress ={this.props.toggleProgress}
+                followingInProgress= {this.props.followingInProgress}
 
 
 
@@ -61,30 +62,11 @@ let mapState = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
-// let mapDispatch = (dispatch) => {
-//     return {
-//         follow: (userid) => {
-//             dispatch(followAC(userid))
-//         },
-//         unfollow: (userid) => {
-//             dispatch(unfollowAC(userid))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
 
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setTotalUsersCountAC(totalCount))
-
-//         }
-//     }
-// }
 
 export default connect(mapState, {
     follow,
@@ -92,5 +74,6 @@ export default connect(mapState, {
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
-    setIsFetching
+    setIsFetching,
+    toggleProgress
 })(UsersComtainer);
