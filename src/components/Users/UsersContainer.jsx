@@ -1,36 +1,23 @@
 import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching, toggleProgress } from "../../redux/users-reducer";
-import * as axios from 'axios';
+import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching, toggleProgress, getUsers } from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
-import { usersAPI } from "../../api/usersAPI";
 
 
 
-class UsersComtainer extends React.Component {
+
+class UsersContainer extends React.Component {
 
     componentDidMount() {
 
-        this.props.setIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
 
-            this.props.setIsFetching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
 
-        });
+
     }
     onPageChanged = (pageNumber) => {
-        this.props.setIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.setIsFetching(false);
-            this.props.setUsers(data.items);
-
-
-        });
+        this.props.getUsers(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -45,8 +32,8 @@ class UsersComtainer extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
-                toggleProgress ={this.props.toggleProgress}
-                followingInProgress= {this.props.followingInProgress}
+                toggleProgress={this.props.toggleProgress}
+                followingInProgress={this.props.followingInProgress}
 
 
 
@@ -75,5 +62,6 @@ export default connect(mapState, {
     setCurrentPage,
     setTotalUsersCount,
     setIsFetching,
-    toggleProgress
-})(UsersComtainer);
+    toggleProgress,
+    getUsers
+})(UsersContainer);

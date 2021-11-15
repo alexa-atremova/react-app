@@ -7,17 +7,16 @@ const BackAva = 'https://get.pxhere.com/photo/sky-cloud-daytime-pink-blue-afterg
 
 const ProfileInfo = (props) => {
 
-  if (!props.profile) {
-    <Preloader />
+  if (!props.profile.photos) {
+   return <Preloader />
   }
-
 
   return (
     <div >
       <img className={styles.backAva} src={BackAva}></img>
       <div className={styles.aboutMe}>
         {/* <img className={styles.ava} src='./user.jpg'></img> */};
-        <img className={styles.ava} src={props.profile.photos}></img>
+        <img className={styles.ava} src={props.profile.photos.large}></img>
         <div className={styles.description}>
           <div className={styles.userName}>{props.profile.fullName}</div>
           <div className={styles.userDate}>День рождение: 07.07.2007</div>
