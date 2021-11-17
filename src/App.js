@@ -7,6 +7,7 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer'
 import {BrowserRouter, Route} from 'react-router-dom';
+import Login from './components/Login/Login';
 
 function App(props) {
 
@@ -25,7 +26,8 @@ function App(props) {
 
       </div>
     
- 
+      <div> <Route path = '/login' render = {()=><Login />}/></div>
+
     </div>
     </BrowserRouter>
   );
