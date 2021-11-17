@@ -8,7 +8,7 @@ const BackAva = 'https://get.pxhere.com/photo/sky-cloud-daytime-pink-blue-afterg
 const ProfileInfo = (props) => {
 
   if (!props.profile.photos) {
-   return <Preloader />
+    return <Preloader />
   }
 
   return (
