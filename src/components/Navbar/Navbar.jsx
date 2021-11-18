@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className="nav">
             <div>
-                <NavLink to="/profile/2" style={{ textDecoration: 'none' }}>Profile</NavLink>
+                <NavLink to="/profile/20456" style={{ textDecoration: 'none' }}>Profile</NavLink>
             </div>
 
             <div>
