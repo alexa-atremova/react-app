@@ -1,39 +1,69 @@
-
-
 .loginForm {
-    grid-area: c;
-    font-family: 'Impact';
-    font-size: 30px;
-    color: rgb(51, 15, 56);
-  
- 
-  
-  }
-  
-  .loginData input {
-    border-radius: 10px;
-    width: 300px;
-    height: 30px;
-    margin-top: 10px;
-    font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.39);
-    padding: 10px;
-    
-  
-  }
-  
-  .loginData button {
-    border-radius: 10px;
-    background-color: plum;
-    box-shadow: 0px 2px 7px 2px rgba(24, 4, 24, 0.336);
-    width: 80px;
-    height: 40px;
-    color: rgb(51, 15, 56);
-    font-family: 'Impact';
-    font-size: 20px;
-    margin-top: 15px;
-  
-  
-  }
-  
-  
+  grid-area: c;
+  font-family: 'Impact';
+  font-size: 30px;
+  color: rgb(51, 15, 56);
+  background-color: rgba(238, 169, 221, 0.466);
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: 5px 2px 5px 5px rgba(24, 4, 24, 0.336);
+  width: 990px;
+  position: absolute;
+
+
+}
+
+
+.loginData {
+  padding-left: 100px;
+  padding-top: 100px;
+  display: flex;
+
+  flex-direction: column;
+
+
+}
+
+
+.loginData input {
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.39);
+  padding: 10px;
+
+}
+
+.loginData button {
+  border-radius: 10px;
+  background-color: plum;
+  box-shadow: 0px 2px 7px 2px rgba(24, 4, 24, 0.336);
+  width: 80px;
+  height: 40px;
+  color: rgb(51, 15, 56);
+  font-family: 'Impact';
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
+
+
+}
+
+.loginData h1 {
+  margin-left: 90px;
+}
+
+.singUpButton {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 150px;
+}
+
+
+.singUpButton a {
+  margin: 20px;
+  margin-right: 10px;
+}

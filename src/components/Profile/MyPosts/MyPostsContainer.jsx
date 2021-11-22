@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 
 
 
+
 let mapState = (state) => {
   return {
     posts: state.profilePage.posts,
     newPostText: state.profilePage.newPostText,
-    
+    profile: state.profilePage.profile
   }
 
 }
@@ -25,5 +26,8 @@ let mapDispatch = (dispatch) => {
   }
 }
 
+
 const MyPostsContainer = connect(mapState, mapDispatch)(MyPosts);
 export default MyPostsContainer;
+
+
