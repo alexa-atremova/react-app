@@ -3,6 +3,8 @@ import Users from "./Users";
 import { connect } from "react-redux";
 import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching, toggleProgress, getUsers } from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
+import { withAuthRedirect } from "../hoc/AuthRedirect";
+import { compose } from 'redux';
 
 
 
@@ -55,7 +57,9 @@ let mapState = (state) => {
 }
 
 
-export default connect(mapState, {
+export default compose(
+    withAuthRedirect,
+    connect(mapState, {
     follow,
     unfollow,
     setUsers,
@@ -64,4 +68,4 @@ export default connect(mapState, {
     setIsFetching,
     toggleProgress,
     getUsers
-})(UsersContainer);
+}))(UsersContainer);

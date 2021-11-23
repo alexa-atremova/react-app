@@ -1,9 +1,8 @@
-import * as axios from 'axios';
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './users.module.css';
 import { usersAPI } from "../../api/usersAPI";
-import UserAva from '../../assets/userPhoto.png'
 
 
 let Users = (props) => {
@@ -12,7 +11,7 @@ let Users = (props) => {
     let pages = [];
     // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     // for (let i = 1; i <= pagesCount; i++) {
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 1; i <= 50; i++) {
         pages.push(i);
     }
 

@@ -26,9 +26,9 @@ const ProfileInfo = (props) => {
     
         <img className={styles.ava} src={ava}></img>
        
-        <div className={`О себе: ${styles.description}`}>
+        <div className={styles.description}>
           <div className={styles.userName}>{props.profile.fullName}</div>
-          <ProfileStatus status={props.status}/>
+        <ProfileStatus status= {props.status} updateUserStatus= {props.updateUserStatus}/>
           <div className={styles.userDate}>День рождения: null</div>
           <div className={styles.userTown}>Город: null</div>
           <div className={styles.userHobby}>О себе: {props.profile.aboutMe}</div>
