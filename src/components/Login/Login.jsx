@@ -1,8 +1,13 @@
 
 import React from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-import style from "./login.module.css"
+import style from "./login.module.css" 
+import login from "../../redux/auth-reducer" 
+import { Input } from "../common/FormsControls/FormsControls";
+import { requiredField } from "../Validators/validators";
+
 
 const LoginForm = (props) => {
     return <form onSubmit ={props.handleSubmit}>
@@ -10,9 +15,9 @@ const LoginForm = (props) => {
 
             <div className={style.loginData}>
             <h1 className={style.loginTitle}>LOGIN</h1>
-                <Field placeholder="Enter your email..." name={"login"} component={"input"} />
-                <Field placeholder="Enter your password..." name={"password"} component={"input"} />
-                <div className={style.checkbox} ><Field type={"checkbox"} name={"rememberMe"} component={"input"} /> rememder me</div>
+                <Field placeholder="Enter your email..." name={"email"} component={Input} validate ={requiredField} />
+                <Field placeholder="Enter your password..." name={"password"} component={Input} type ={"password"} validate ={requiredField}/>
+                <div className={style.checkbox} ><Field type={"checkbox"} name={"rememberMe"} component={Input} /> rememder me</div>
                 <button type="submit">Sing in</button>
             </div>
 
@@ -33,11 +38,11 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
     const onSubmit =(formData) =>{
-        console.log(formData);
+        props.login(formData.email,formData.password,formData.rememberMe);
     }
     return <div>
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 }
 
-export default Login;
+export default connect(null,{login})(Login);
