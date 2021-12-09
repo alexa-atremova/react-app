@@ -12,7 +12,7 @@ import { requiredField } from "../Validators/validators";
 const LoginForm = (props) => {
     return <form onSubmit ={props.handleSubmit}>
         <div className={style.loginForm}>
-
+ 
             <div className={style.loginData}>
             <h1 className={style.loginTitle}>LOGIN</h1>
                 <Field placeholder="Enter your email..." name={"email"} component={Input} validate ={requiredField} />
